@@ -1,4 +1,4 @@
-## Implementation of Fanout and Workers Process
+## Stress Testing with Bomber Squad
 
 ### Code
 
