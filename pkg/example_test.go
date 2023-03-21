@@ -110,7 +110,7 @@ func TestListenToSqs(t *testing.T) {
 			name: "listen to sqs",
 			args: args{
 				ctx:       ctx,
-				queueName: "loadtest-webhook-mandrill-rumi-reporting",
+				queueName: "loadtest-webhook-mandrill-app2",
 			},
 			wantErr: false,
 		},
@@ -148,7 +148,7 @@ func TestBombSqs(t *testing.T) {
 			name: "bomb sqs",
 			args: args{
 				ctx:       ctx,
-				queueName: "loadtest-webhook-mandrill-rumi-reporting",
+				queueName: "loadtest-webhook-mandrill-app2",
 				n:         100000,
 			},
 			wantErr: false,
