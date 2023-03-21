@@ -1,0 +1,6 @@
+{
+    "go.buildFlags": [
+        "-tags=integrationtesting"
+    ],
+    "go.testTags": "integrationtesting",
+}
