@@ -1,5 +1,5 @@
-//go:build integrationtesting
-// +build integrationtesting
+//go:build integration
+// +build integration
 
 package example
 
