@@ -93,7 +93,7 @@ func BombSqs(ctx context.Context, queueName string, n int) error {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		bombers.Launch(ctx, func(c context.Context, task []byte) (bomber.BomberReport, error) {
+		results, err := bombers.Launch(ctx, func(c context.Context, task []byte) (bomber.BomberReport, error) {
 
 			sqsWorker.SendMessage(ctx, string(task), map[string]types.MessageAttributeValue{})
 			return bomber.BomberReport{
@@ -101,6 +101,12 @@ func BombSqs(ctx context.Context, queueName string, n int) error {
 				Result: "",
 			}, nil
 		})
+		if err != nil {
+			fmt.Println(err)
+		}
+		for result := range results {
+			fmt.Println(result)
+		}
 		fmt.Println("bombers is done")
 	}()
 

@@ -12,7 +12,6 @@ import (
 	"time"
 
 	bomber "github.com/jyouturner/bomber/pkg/bombers"
-	bombers "github.com/jyouturner/bomber/pkg/bombers"
 )
 
 func TestBombUrl(t *testing.T) {
@@ -33,7 +32,7 @@ func TestBombUrl(t *testing.T) {
 			name: "localhost http load testing",
 			args: args{
 				ctx: ctx,
-				c: bombers.HttpConfig{
+				c: bomber.HttpConfig{
 					Url:    "http://localhost:3000/hello",
 					Method: "POST",
 					Body:   "",
@@ -73,7 +72,7 @@ func TestBombUrl_Interrupt(t *testing.T) {
 			name: "localhost http load testing",
 			args: args{
 				ctx: ctx,
-				c: bombers.HttpConfig{
+				c: bomber.HttpConfig{
 					Url:    "http://localhost:3000/hello",
 					Method: "POST",
 					Body:   "",

@@ -27,7 +27,15 @@ func ReadFileAndBombHttp(ctx context.Context, f string) error {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		bombers.Launch(ctx, httpBomber.Bomb)
+		got, err := bombers.Launch(ctx, httpBomber.Bomb)
+		if err != nil {
+			fmt.Println("bombers error", err)
+		}
+		// print the results
+		for _, v := range got {
+			fmt.Println(v)
+		}
+
 	}()
 
 	wg.Add(1)
@@ -69,8 +77,15 @@ func BombUrl(ctx context.Context, c bomber.HttpConfig, n int) error {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		bombers.Launch(ctx, httpBomber.Bomb)
-		fmt.Println("bombers is done")
+		got, err := bombers.Launch(ctx, httpBomber.Bomb)
+		if err != nil {
+			fmt.Println("bombers error", err)
+		}
+		// print the results
+		for _, v := range got {
+			fmt.Println(v)
+		}
+
 	}()
 
 	// send the N tasks
